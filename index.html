@@ -35,6 +35,9 @@ h1 em{font-style:normal;color:var(--yellow);text-shadow:0 4px 0 #c76a00,0 0 40px
  padding:16px 34px;border-radius:14px;font-size:1.05rem;box-shadow:0 6px 0 #c9921c,0 12px 40px rgba(255,210,63,.45);transition:transform .12s,box-shadow .12s}
 .btn:hover{transform:translateY(3px);box-shadow:0 3px 0 #c9921c,0 8px 30px rgba(255,210,63,.45)}
 .meta{margin-top:18px;font-size:.92rem;color:#fff;opacity:.92}
+.duo{position:absolute;left:50%;bottom:20px;transform:translateX(-50%);z-index:2;width:190px;text-align:center;pointer-events:none}
+.duo svg{width:100%;display:block;margin-bottom:-6px}
+.duo-tag{position:absolute;left:50%;bottom:34px;transform:translateX(-50%);white-space:nowrap;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:#fff;opacity:.9;display:none}
 .palms{position:absolute;left:0;right:0;bottom:0;height:200px;z-index:2;pointer-events:none}
 .palms svg{width:100%;height:100%;display:block}
 .grid3d{position:relative;height:90px;background:var(--ink);overflow:hidden}
@@ -71,6 +74,26 @@ footer a{color:var(--muted)}
     <p class="lead">Finds the best moments in your gameplay and renders vertical 9:16 clips with captions. You review every clip before it goes anywhere.</p>
     <a id="dl" class="btn" href="https://github.com/mdsarowarofficial/gta-reels-studio-site/releases/latest">Download for Windows</a>
     <div class="meta" id="meta">Windows 10/11, 64-bit</div>
+  </div>
+  <div class="duo" aria-hidden="true">
+    <svg viewBox="0 0 220 230" role="img" aria-label="Silhouettes of two characters">
+      <defs><filter id="glow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+      <g fill="#150a24" stroke="#ff2e93" stroke-width="2.5" filter="url(#glow)" stroke-linejoin="round">
+        <!-- Jason: broad shoulders, cap -->
+        <circle cx="72" cy="48" r="17"/>
+        <path d="M54 44 C56 30 88 28 92 42 L104 44 L92 48 C90 40 60 40 54 48Z" stroke="#ffd23f"/>
+        <path d="M44 230 L48 110 C50 82 62 70 72 70 C84 70 96 82 98 110 L102 230Z"/>
+        <path d="M48 112 L34 168 M98 112 L112 160"/>
+      </g>
+      <g fill="#150a24" stroke="#2de2e6" stroke-width="2.5" filter="url(#glow)" stroke-linejoin="round">
+        <!-- Lucia: ponytail -->
+        <circle cx="150" cy="56" r="15"/>
+        <path d="M160 46 C186 40 192 76 178 98 C184 74 176 56 160 56Z"/>
+        <path d="M118 230 L124 122 C126 94 138 82 150 82 C162 82 172 94 174 122 L180 230Z"/>
+        <path d="M124 124 L112 176 M174 124 L186 170"/>
+      </g>
+    </svg>
+    <div class="duo-tag">Jason &amp; Lucia style &middot; Vice City nights</div>
   </div>
   <div class="palms" aria-hidden="true">
     <svg viewBox="0 0 1200 200" preserveAspectRatio="xMidYMax slice">
