@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>GTA AI Reels Studio - Turn GTA streams into Reels</title>
+<title>GTA AI Reels Studio - Turn GTA VI streams into Reels</title>
 <meta name="description" content="A Windows app that finds the best moments in GTA gameplay and renders reviewed 9:16 Reels. Runs on your own PC.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
@@ -30,6 +30,8 @@ nav a.l{color:#fff;text-decoration:none;font-weight:500;opacity:.9}
  text-shadow:0 0 12px rgba(45,226,230,.8);margin-bottom:14px}
 h1{margin:0 0 18px;font-size:clamp(2.4rem,7.2vw,5.2rem);color:#fff;text-shadow:0 4px 0 #b3125f,0 0 40px rgba(255,46,147,.55)}
 h1 em{font-style:normal;color:var(--yellow);text-shadow:0 4px 0 #c76a00,0 0 40px rgba(255,210,63,.5)}
+.gta{white-space:nowrap}
+.vi{display:inline-block;margin-left:.12em;background:linear-gradient(180deg,#ffe36b 0%,#ff8a3d 45%,#ff2e93 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;text-shadow:none;filter:drop-shadow(0 4px 0 #7a1a8c) drop-shadow(0 0 22px rgba(255,46,147,.6))}
 .lead{max-width:620px;margin:0 auto 30px;color:#fff;font-size:1.15rem;text-shadow:0 2px 14px rgba(40,0,60,.6)}
 .btn{display:inline-block;background:var(--yellow);color:#2a0a40;text-decoration:none;font-family:"Bowlby One",sans-serif;text-transform:uppercase;
  padding:16px 34px;border-radius:14px;font-size:1.05rem;box-shadow:0 6px 0 #c9921c,0 12px 40px rgba(255,210,63,.45);transition:transform .12s,box-shadow .12s}
@@ -70,7 +72,7 @@ footer a{color:var(--muted)}
   <div class="sun"></div>
   <div class="wrap">
     <div class="eyebrow">For Windows &middot; Runs on your PC</div>
-    <h1 class="display">Turn GTA streams<br>into <em>Reels</em></h1>
+    <h1 class="display">Turn <span class="gta">GTA<span class="vi">VI</span></span> streams<br>into <em>Reels</em></h1>
     <p class="lead">Finds the best moments in your gameplay and renders vertical 9:16 clips with captions. You review every clip before it goes anywhere.</p>
     <a id="dl" class="btn" href="https://github.com/mdsarowarofficial/gta-reels-studio-site/releases/latest">Download for Windows</a>
     <div class="meta" id="meta">Windows 10/11, 64-bit</div>
@@ -78,7 +80,6 @@ footer a{color:var(--muted)}
   <div class="duo" aria-hidden="true">
     <svg viewBox="0 0 220 230" role="img" aria-label="Silhouettes of two characters">
       <defs><filter id="glow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
-      <text x="72" y="14" text-anchor="middle" fill="#fff" font-family="Bowlby One,sans-serif" font-size="12" letter-spacing="2">JASON</text><text x="150" y="14" text-anchor="middle" fill="#fff" font-family="Bowlby One,sans-serif" font-size="12" letter-spacing="2">LUCIA</text>
       <g fill="#150a24" stroke="#ff2e93" stroke-width="2.5" filter="url(#glow)" stroke-linejoin="round">
         <!-- Jason: broad shoulders, cap -->
         <circle cx="72" cy="48" r="17"/>
