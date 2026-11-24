@@ -1,7 +1,80 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>GTA Reels Studio</title>
-<style>body{font-family:system-ui,sans-serif;max-width:720px;margin:40px auto;padding:0 16px;line-height:1.6;color:#222}</style></head><body>
-<h1>GTA Reels Studio</h1>
-<p>GTA Reels Studio is a Windows desktop application that helps a creator find highlights in their own gameplay recordings and render vertical 9:16 Reels. Everything runs on the creator's own PC.</p>
-<p>After the creator has reviewed a finished video, the app can upload it to the creator's own YouTube channel. Uploads happen only when the creator presses the upload button; nothing is posted automatically.</p>
-<p><a href="privacy.html">Privacy Policy</a></p>
-</body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GTA AI Reels Studio - Turn GTA streams into Reels</title>
+<meta name="description" content="A Windows app that finds the best moments in GTA gameplay and renders reviewed 9:16 Reels. Runs on your own PC.">
+<style>
+:root{--bg:#0b0e14;--card:#131826;--line:#222a3d;--text:#e8ecf4;--muted:#9aa5bd;--accent:#ff4d6d;--accent2:#ffb84d}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:var(--accent2)}
+.wrap{max-width:980px;margin:0 auto;padding:0 20px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
+.logo{font-weight:800;letter-spacing:.3px}.logo span{color:var(--accent)}
+.hero{text-align:center;padding:64px 0 48px;background:radial-gradient(ellipse at top,#2a1330 0,transparent 60%)}
+h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;margin:0 0 16px}
+h1 em{font-style:normal;color:var(--accent)}
+.lead{max-width:640px;margin:0 auto 28px;color:var(--muted);font-size:1.1rem}
+.btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;padding:14px 28px;border-radius:12px;font-size:1.05rem}
+.btn:hover{filter:brightness(1.1)}
+.meta{margin-top:12px;color:var(--muted);font-size:.9rem}
+section{padding:40px 0}
+h2{font-size:1.6rem;margin:0 0 20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+.card h3{margin:0 0 6px;font-size:1.05rem}
+.card p{margin:0;color:var(--muted);font-size:.95rem}
+ol{padding-left:20px}ol li{margin-bottom:10px}
+.note{background:#2a2112;border:1px solid #5a4415;border-radius:12px;padding:14px 18px;color:#f3d9a0;font-size:.95rem}
+footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:.9rem;text-align:center}
+code{background:#1b2236;padding:2px 6px;border-radius:6px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav><div class="logo">GTA AI <span>Reels</span> Studio</div><a href="privacy.html">Privacy</a></nav>
+  <header class="hero">
+    <h1>Turn GTA streams into <em>Reels</em>,<br>reviewed by you.</h1>
+    <p class="lead">Finds the best moments in your GTA gameplay and renders vertical 9:16 clips with captions. Everything runs on your own Windows PC.</p>
+    <a id="dl" class="btn" href="https://github.com/mdsarowarofficial/gta-reels-studio-site/releases/latest">Download for Windows</a>
+    <div class="meta" id="meta">Windows 10/11, 64-bit</div>
+  </header>
+
+  <section>
+    <h2>What it does</h2>
+    <div class="grid">
+      <div class="card"><h3>Finds highlights</h3><p>Scores moments from audio, chat and picture, or you type your own time frames.</p></div>
+      <div class="card"><h3>Ready-made 9:16</h3><p>1080x1920 Reels with captions, blur background or automatic facecam layouts.</p></div>
+      <div class="card"><h3>You stay in control</h3><p>Nothing is posted automatically. Review each clip, then export or upload to your YouTube channel.</p></div>
+      <div class="card"><h3>Private by design</h3><p>No account with us and no cloud processing. Your videos and sign-in stay on your PC.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Install in 3 steps</h2>
+    <ol>
+      <li>Click <b>Download for Windows</b> and run the installer.</li>
+      <li>If Windows shows "Windows protected your PC", click <b>More info</b>, then <b>Run anyway</b>. The installer is not code-signed yet.</li>
+      <li>Open GTA AI Reels Studio from the Start menu. The first start guides you through setup.</li>
+    </ol>
+    <div class="note"><b>YouTube upload:</b> when you connect YouTube, Google may say "Google hasn't verified this app". Click <b>Advanced</b>, then <b>Go to GTA Reels Studio</b>. Updates: the app tells you when a new version is available and only downloads it when you click Update.</div>
+  </section>
+
+  <section>
+    <h2>Check your download</h2>
+    <p style="color:var(--muted)">SHA-256 of the installer: <code id="sha">loading...</code></p>
+  </section>
+  <footer>&copy; GTA AI Reels Studio. Not affiliated with Rockstar Games or Take-Two. Clip only content you have permission to use.</footer>
+</div>
+<script>
+fetch("latest.json",{cache:"no-store"}).then(r=>r.json()).then(m=>{
+  document.getElementById("dl").href=m.url;
+  document.getElementById("dl").textContent="Download for Windows (v"+m.version+")";
+  document.getElementById("meta").textContent="Windows 10/11, 64-bit - "+Math.round(m.size/1048576)+" MB - released "+m.released;
+  document.getElementById("sha").textContent=m.sha256;
+}).catch(()=>{document.getElementById("sha").textContent="see the release page"});
+</script>
+</body>
+</html>
