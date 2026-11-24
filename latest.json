@@ -1,8 +1,8 @@
 {
-  "version": "1.0.1",
-  "released": "2026-11-24",
-  "notes": "Choose clips/exports and large-file folders (any drive) in the installer. Old clips keep working after changing the output folder. Thumbnails show the highlight moment.",
-  "url": "https://github.com/mdsarowarofficial/gta-reels-studio-site/releases/download/v1.0.1/GTA-AI-Reels-Studio-Setup-1.0.1.exe",
-  "sha256": "ac03370f5118a965f9d0b5575fe9bed2817b4e9cb81a46f9b22b77d6bacc4882",
-  "size": 234144036
+  "version": "1.0.2",
+  "released": "2026-11-25",
+  "notes": "Customisable hook text (position, duration, font, colours). Safer YouTube scheduling. Update banner when a new version is out.",
+  "url": "https://github.com/mdsarowarofficial/gta-reels-studio-site/releases/download/v1.0.2/GTA-AI-Reels-Studio-Setup-1.0.2.exe",
+  "sha256": "2541e51f88f3cb05eaf3b03bf2d6737adac7adf11833bcad7dac106289152ad0",
+  "size": 234145873
 }
