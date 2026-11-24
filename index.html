@@ -5,76 +5,129 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>GTA AI Reels Studio - Turn GTA streams into Reels</title>
 <meta name="description" content="A Windows app that finds the best moments in GTA gameplay and renders reviewed 9:16 Reels. Runs on your own PC.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0b0e14;--card:#131826;--line:#222a3d;--text:#e8ecf4;--muted:#9aa5bd;--accent:#ff4d6d;--accent2:#ffb84d}
+:root{--ink:#150a24;--ink2:#1f1035;--pink:#ff2e93;--orange:#ff8a3d;--yellow:#ffd23f;--teal:#2de2e6;--text:#fff4ec;--muted:#cdb9d8}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}
-a{color:var(--accent2)}
-.wrap{max-width:980px;margin:0 auto;padding:0 20px}
-nav{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
-.logo{font-weight:800;letter-spacing:.3px}.logo span{color:var(--accent)}
-.hero{text-align:center;padding:64px 0 48px;background:radial-gradient(ellipse at top,#2a1330 0,transparent 60%)}
-h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;margin:0 0 16px}
-h1 em{font-style:normal;color:var(--accent)}
-.lead{max-width:640px;margin:0 auto 28px;color:var(--muted);font-size:1.1rem}
-.btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;padding:14px 28px;border-radius:12px;font-size:1.05rem}
-.btn:hover{filter:brightness(1.1)}
-.meta{margin-top:12px;color:var(--muted);font-size:.9rem}
-section{padding:40px 0}
-h2{font-size:1.6rem;margin:0 0 20px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
-.card h3{margin:0 0 6px;font-size:1.05rem}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ink);color:var(--text);font:16px/1.65 Inter,system-ui,sans-serif}
+a{color:var(--yellow)}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px;position:relative}
+.display{font-family:"Bowlby One",Impact,sans-serif;text-transform:uppercase;letter-spacing:.5px;line-height:1.02}
+nav{position:absolute;top:0;left:0;right:0;z-index:5}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:20px;padding-bottom:20px}
+.logo{font-family:"Bowlby One",sans-serif;font-size:1.05rem;color:#fff;text-decoration:none}
+.logo b{color:var(--yellow)}
+nav a.l{color:#fff;text-decoration:none;font-weight:500;opacity:.9}
+.hero{position:relative;overflow:hidden;padding:150px 0 190px;text-align:center;
+ background:linear-gradient(180deg,#2a0a52 0%,#7a1a8c 28%,#e0307f 55%,#ff7a3d 78%,#ffc247 100%)}
+.sun{position:absolute;left:50%;bottom:70px;width:420px;height:420px;transform:translateX(-50%);border-radius:50%;
+ background:linear-gradient(180deg,#fff0a8 0%,#ffb347 45%,#ff4f81 100%);opacity:.95;
+ -webkit-mask:repeating-linear-gradient(180deg,#000 0 30px,transparent 30px 36px);mask:repeating-linear-gradient(180deg,#000 0 30px,transparent 30px 36px)}
+.hero .wrap{z-index:3}
+.eyebrow{display:inline-block;font-weight:700;font-size:.8rem;letter-spacing:.25em;text-transform:uppercase;color:var(--teal);
+ text-shadow:0 0 12px rgba(45,226,230,.8);margin-bottom:14px}
+h1{margin:0 0 18px;font-size:clamp(2.4rem,7.2vw,5.2rem);color:#fff;text-shadow:0 4px 0 #b3125f,0 0 40px rgba(255,46,147,.55)}
+h1 em{font-style:normal;color:var(--yellow);text-shadow:0 4px 0 #c76a00,0 0 40px rgba(255,210,63,.5)}
+.lead{max-width:620px;margin:0 auto 30px;color:#fff;font-size:1.15rem;text-shadow:0 2px 14px rgba(40,0,60,.6)}
+.btn{display:inline-block;background:var(--yellow);color:#2a0a40;text-decoration:none;font-family:"Bowlby One",sans-serif;text-transform:uppercase;
+ padding:16px 34px;border-radius:14px;font-size:1.05rem;box-shadow:0 6px 0 #c9921c,0 12px 40px rgba(255,210,63,.45);transition:transform .12s,box-shadow .12s}
+.btn:hover{transform:translateY(3px);box-shadow:0 3px 0 #c9921c,0 8px 30px rgba(255,210,63,.45)}
+.meta{margin-top:18px;font-size:.92rem;color:#fff;opacity:.92}
+.palms{position:absolute;left:0;right:0;bottom:0;height:200px;z-index:2;pointer-events:none}
+.palms svg{width:100%;height:100%;display:block}
+.grid3d{position:relative;height:90px;background:var(--ink);overflow:hidden}
+.grid3d::before{content:"";position:absolute;inset:0;background:
+ linear-gradient(transparent 0 93%,rgba(45,226,230,.55) 94% 100%),linear-gradient(90deg,transparent 0 96%,rgba(255,46,147,.5) 97% 100%);
+ background-size:100% 18px,60px 100%;transform:perspective(220px) rotateX(55deg);transform-origin:top;opacity:.7}
+section{padding:56px 0}
+h2{font-size:clamp(1.6rem,4vw,2.3rem);margin:0 0 26px;color:#fff;text-shadow:0 3px 0 #b3125f}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.card{background:linear-gradient(160deg,rgba(255,46,147,.16),rgba(45,226,230,.07));border:1px solid rgba(255,138,61,.35);border-radius:18px;padding:22px}
+.card .n{font-family:"Bowlby One",sans-serif;font-size:1.7rem;color:var(--teal);text-shadow:0 0 16px rgba(45,226,230,.6)}
+.card h3{margin:6px 0 6px;font-size:1.08rem;color:#fff}
 .card p{margin:0;color:var(--muted);font-size:.95rem}
-ol{padding-left:20px}ol li{margin-bottom:10px}
-.note{background:#2a2112;border:1px solid #5a4415;border-radius:12px;padding:14px 18px;color:#f3d9a0;font-size:.95rem}
-footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:.9rem;text-align:center}
-code{background:#1b2236;padding:2px 6px;border-radius:6px}
+.steps{counter-reset:s;list-style:none;padding:0;margin:0;display:grid;gap:14px}
+.steps li{counter-increment:s;position:relative;padding:16px 18px 16px 70px;background:var(--ink2);border-radius:16px;border:1px solid rgba(255,255,255,.08)}
+.steps li::before{content:counter(s);position:absolute;left:16px;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:12px;display:grid;place-items:center;
+ font-family:"Bowlby One",sans-serif;color:#2a0a40;background:linear-gradient(135deg,var(--yellow),var(--orange))}
+.note{margin-top:18px;background:rgba(255,210,63,.1);border:1px solid rgba(255,210,63,.4);border-radius:14px;padding:14px 18px;color:#ffe9a8;font-size:.95rem}
+code{background:rgba(255,255,255,.1);padding:2px 7px;border-radius:6px;word-break:break-all;font-size:.82rem}
+.sha{color:var(--muted)}
+footer{padding:34px 0 46px;text-align:center;color:var(--muted);font-size:.85rem;background:linear-gradient(180deg,var(--ink),#0c0518)}
+footer a{color:var(--muted)}
+@media(max-width:600px){.hero{padding:120px 0 160px}.sun{width:300px;height:300px}}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <nav><div class="logo">GTA AI <span>Reels</span> Studio</div><a href="privacy.html">Privacy</a></nav>
-  <header class="hero">
-    <h1>Turn GTA streams into <em>Reels</em>,<br>reviewed by you.</h1>
-    <p class="lead">Finds the best moments in your GTA gameplay and renders vertical 9:16 clips with captions. Everything runs on your own Windows PC.</p>
+<nav><div class="wrap"><a class="logo" href="#">GTA AI <b>Reels</b> Studio</a><a class="l" href="privacy.html">Privacy</a></div></nav>
+
+<header class="hero">
+  <div class="sun"></div>
+  <div class="wrap">
+    <div class="eyebrow">For Windows &middot; Runs on your PC</div>
+    <h1 class="display">Turn GTA streams<br>into <em>Reels</em></h1>
+    <p class="lead">Finds the best moments in your gameplay and renders vertical 9:16 clips with captions. You review every clip before it goes anywhere.</p>
     <a id="dl" class="btn" href="https://github.com/mdsarowarofficial/gta-reels-studio-site/releases/latest">Download for Windows</a>
     <div class="meta" id="meta">Windows 10/11, 64-bit</div>
-  </header>
+  </div>
+  <div class="palms" aria-hidden="true">
+    <svg viewBox="0 0 1200 200" preserveAspectRatio="xMidYMax slice">
+      <g fill="#150a24">
+        <rect x="0" y="170" width="1200" height="30"/>
+        <path d="M120 200 C122 140 118 90 128 40 L136 40 C128 90 134 140 140 200Z"/>
+        <path d="M132 42 C100 20 62 28 30 56 C66 44 98 46 132 48Z"/><path d="M132 42 C108 4 70 0 36 14 C74 14 102 26 132 46Z"/>
+        <path d="M132 42 C160 22 198 28 230 56 C196 44 164 46 132 48Z"/><path d="M132 42 C156 4 194 0 228 14 C190 14 162 26 132 46Z"/>
+        <path d="M1050 200 C1052 150 1046 100 1060 52 L1068 52 C1060 100 1066 150 1072 200Z"/>
+        <path d="M1064 54 C1032 34 994 40 962 66 C998 56 1030 58 1064 60Z"/><path d="M1064 54 C1040 18 1002 14 968 28 C1006 28 1034 38 1064 58Z"/>
+        <path d="M1064 54 C1092 34 1130 40 1162 66 C1128 56 1096 58 1064 60Z"/><path d="M1064 54 C1088 18 1126 14 1160 28 C1122 28 1094 38 1064 58Z"/>
+        <rect x="300" y="140" width="26" height="40"/><rect x="332" y="120" width="30" height="60"/><rect x="368" y="150" width="22" height="30"/>
+        <rect x="820" y="132" width="28" height="48"/><rect x="854" y="110" width="34" height="70"/><rect x="894" y="146" width="24" height="34"/>
+      </g>
+    </svg>
+  </div>
+</header>
+<div class="grid3d" aria-hidden="true"></div>
 
+<main class="wrap">
   <section>
-    <h2>What it does</h2>
-    <div class="grid">
-      <div class="card"><h3>Finds highlights</h3><p>Scores moments from audio, chat and picture, or you type your own time frames.</p></div>
-      <div class="card"><h3>Ready-made 9:16</h3><p>1080x1920 Reels with captions, blur background or automatic facecam layouts.</p></div>
-      <div class="card"><h3>You stay in control</h3><p>Nothing is posted automatically. Review each clip, then export or upload to your YouTube channel.</p></div>
-      <div class="card"><h3>Private by design</h3><p>No account with us and no cloud processing. Your videos and sign-in stay on your PC.</p></div>
+    <h2 class="display">What it does</h2>
+    <div class="cards">
+      <div class="card"><div class="n">01</div><h3>Finds highlights</h3><p>Scores moments from audio, chat and picture, or you type your own time frames.</p></div>
+      <div class="card"><div class="n">02</div><h3>Ready-made 9:16</h3><p>1080x1920 Reels with captions, a blur background or automatic facecam layouts.</p></div>
+      <div class="card"><div class="n">03</div><h3>You stay in control</h3><p>Nothing posts automatically. Review each clip, then export or upload to your own YouTube channel.</p></div>
+      <div class="card"><div class="n">04</div><h3>Private by design</h3><p>No account with us and no cloud processing. Your videos and sign-in stay on your PC.</p></div>
     </div>
   </section>
 
-  <section>
-    <h2>Install in 3 steps</h2>
-    <ol>
+  <section id="install">
+    <h2 class="display">Install in 3 steps</h2>
+    <ol class="steps">
       <li>Click <b>Download for Windows</b> and run the installer.</li>
       <li>If Windows shows "Windows protected your PC", click <b>More info</b>, then <b>Run anyway</b>. The installer is not code-signed yet.</li>
       <li>Open GTA AI Reels Studio from the Start menu. The first start guides you through setup.</li>
     </ol>
-    <div class="note"><b>YouTube upload:</b> when you connect YouTube, Google may say "Google hasn't verified this app". Click <b>Advanced</b>, then <b>Go to GTA Reels Studio</b>. Updates: the app tells you when a new version is available and only downloads it when you click Update.</div>
+    <div class="note"><b>YouTube upload:</b> when you connect YouTube, Google may say "Google hasn't verified this app". Click <b>Advanced</b>, then <b>Go to GTA Reels Studio</b>. <b>Updates:</b> the app tells you when a new version is out and only downloads it when you click Update.</div>
   </section>
 
   <section>
-    <h2>Check your download</h2>
-    <p style="color:var(--muted)">SHA-256 of the installer: <code id="sha">loading...</code></p>
+    <h2 class="display">Check your download</h2>
+    <p class="sha">SHA-256 of the installer: <code id="sha">loading...</code></p>
   </section>
-  <footer>&copy; GTA AI Reels Studio. Not affiliated with Rockstar Games or Take-Two. Clip only content you have permission to use.</footer>
-</div>
+</main>
+
+<footer>
+  <div class="wrap">&copy; GTA AI Reels Studio &middot; <a href="privacy.html">Privacy Policy</a><br>
+  Independent fan tool. Not affiliated with, endorsed by or sponsored by Rockstar Games or Take-Two Interactive. Clip only content you have permission to use.</div>
+</footer>
 <script>
-fetch("latest.json",{cache:"no-store"}).then(r=>r.json()).then(m=>{
+fetch("latest.json",{cache:"no-store"}).then(function(r){return r.json()}).then(function(m){
   document.getElementById("dl").href=m.url;
   document.getElementById("dl").textContent="Download for Windows (v"+m.version+")";
   document.getElementById("meta").textContent="Windows 10/11, 64-bit - "+Math.round(m.size/1048576)+" MB - released "+m.released;
   document.getElementById("sha").textContent=m.sha256;
-}).catch(()=>{document.getElementById("sha").textContent="see the release page"});
+}).catch(function(){document.getElementById("sha").textContent="see the release page"});
 </script>
 </body>
 </html>
