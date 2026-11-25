@@ -1,8 +1,8 @@
 {
-  "version": "1.0.2",
+  "version": "1.0.3",
   "released": "2026-11-25",
-  "notes": "Customisable hook text (position, duration, font, colours). Safer YouTube scheduling. Update banner when a new version is out.",
-  "url": "https://github.com/mdsarowarofficial/gta-reels-studio-site/releases/download/v1.0.2/GTA-AI-Reels-Studio-Setup-1.0.2.exe",
-  "sha256": "2541e51f88f3cb05eaf3b03bf2d6737adac7adf11833bcad7dac106289152ad0",
-  "size": 234145873
+  "notes": "Batches in the queue with one-click delete (folder included). Subtitles can be switched off. Fixed jumping captions. Schedule with AM/PM. Fixed clips failing for videos with emoji in the title.",
+  "url": "https://github.com/mdsarowarofficial/gta-reels-studio-site/releases/download/v1.0.3/GTA-AI-Reels-Studio-Setup-1.0.3.exe",
+  "sha256": "2fdc54217de991890da6cce1ec9c4e78f7020053acc20374d9e69c359ca800eb",
+  "size": 234166121
 }
